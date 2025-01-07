@@ -17,11 +17,12 @@ function App() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <img
-            src="/profile-pic.png" // Ensure the image is in the `public` folder
-            alt="Your profile"
-            className="w-full h-full object-cover"
+          <img src="/profile-pic.png" 
+          alt="Your profile" 
+          className="w-full h-full object-cover" 
           />
+
+
         </motion.div>
 
         {/* Name and Bio */}
