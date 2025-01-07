@@ -17,10 +17,13 @@ function App() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <img src="/profile-pic.png" 
-          alt="Your profile" 
-          className="w-full h-full object-cover" 
-          />
+          <img
+  src={`${import.meta.env.BASE_URL}profile-pic.png`}
+  alt="Your profile"
+  className="w-full h-full object-cover"
+/>
+
+       
 
 
         </motion.div>
