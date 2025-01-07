@@ -1,61 +1,95 @@
 import { motion } from 'framer-motion';
-import profilePic from './assets/profile-pic.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faLinkedin, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 function App() {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-b from-purple-900 to-purple-800 px-10">
-      {/* Left Section */}
-      <div className="text-white space-y-6 text-center md:text-left">
-        <motion.h1
-          className="text-6xl font-extrabold"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          &lt;Your Name /&gt;
-        </motion.h1>
-        <motion.p
-          className="text-2xl font-medium"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          Full Stack Developer
-        </motion.p>
+    <div className="font-sans">
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-900 to-purple-700 text-white px-6"
+      >
+        {/* Profile Picture */}
         <motion.div
-          className="flex justify-center md:justify-start space-x-6"
+          className="relative w-48 h-48 md:w-64 md:h-64 bg-purple-600 rounded-full overflow-hidden shadow-lg"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1 }}
         >
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github text-3xl hover:text-purple-300"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin text-3xl hover:text-purple-300"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram text-3xl hover:text-purple-300"></i>
-          </a>
-        </motion.div>
-      </div>
-
-      {/* Right Section */}
-      <motion.div
-        className="relative mt-10 md:mt-0"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-      >
-        <div className="w-96 h-96 bg-purple-700 rounded-full overflow-hidden shadow-2xl">
           <img
-            src={profilePic}
+            src="/profile-pic.png" // Ensure the image is in the `public` folder
             alt="Your profile"
             className="w-full h-full object-cover"
           />
-        </div>
-      </motion.div>
-    </section>
+        </motion.div>
+
+        {/* Name and Bio */}
+        <motion.div
+          className="text-center mt-6 space-y-4"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <h1 className="text-4xl font-bold">&lt;Naveen Tatikayala /&gt;</h1>
+          <p className="text-xl font-medium">Salesforce Consultant Developer</p>
+        </motion.div>
+
+        {/* Social Media Buttons */}
+        <SocialMediaButtons />
+      </section>
+    </div>
+  );
+}
+
+function SocialMediaButtons() {
+  return (
+    <motion.div
+      className="flex justify-center mt-6" // Flex container for horizontal alignment
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, delay: 0.6 }}
+    >
+      {/* GitHub */}
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-300 hover:text-yellow-400 transition duration-300 mx-3"
+      >
+        <FontAwesomeIcon icon={faGithub} size="2x" />
+      </a>
+
+      {/* LinkedIn */}
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-300 hover:text-yellow-400 transition duration-300 mx-3"
+      >
+        <FontAwesomeIcon icon={faLinkedin} size="2x" />
+      </a>
+
+      {/* Instagram */}
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-300 hover:text-yellow-400 transition duration-300 mx-3"
+      >
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
+      </a>
+
+      {/* Facebook */}
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-300 hover:text-yellow-400 transition duration-300 mx-3"
+      >
+        <FontAwesomeIcon icon={faFacebook} size="2x" />
+      </a>
+    </motion.div>
   );
 }
 
